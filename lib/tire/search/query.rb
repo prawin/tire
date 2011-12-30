@@ -27,6 +27,12 @@ module Tire
         # TODO: https://github.com/elasticsearch/elasticsearch/wiki/Query-String-Query
         @value
       end
+      
+      def text(field, value, options={})
+        query_options = { :query => value }.update(options)
+        @value = { :text => { field => query_options } }
+        @value
+      end
 
       def custom_score(options={}, &block)
         @custom_score ||= Query.new(&block)
