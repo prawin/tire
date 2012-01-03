@@ -103,6 +103,7 @@ module Tire
         request.update( { :highlight => @highlight.to_hash } ) if @highlight
         request.update( { :size => @size } )               if @size
         request.update( { :from => @from } )               if @from
+        request.update( { :track_scores => @track_scores } ) if @track_scores
         request.update( { :fields => @fields } )           if @fields
         request
       end
