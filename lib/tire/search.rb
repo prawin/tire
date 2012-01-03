@@ -63,6 +63,13 @@ module Tire
         @options[:size] = value
         self
       end
+      
+      def track_scores(value)
+        @track_scores = value
+        @options[:track_scores] = value
+        self
+      end
+      
 
       def fields(*fields)
         @fields = Array(fields.flatten)
