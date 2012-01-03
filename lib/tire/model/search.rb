@@ -78,6 +78,7 @@ module Tire
           s = Tire::Search::Search.new(options.delete(:index), options)
           s.size( options[:per_page].to_i ) if options[:per_page]
           s.from( options[:page].to_i <= 1 ? 0 : (options[:per_page].to_i * (options[:page].to_i-1)) ) if options[:page] && options[:per_page]
+          s.track_scores(options[:track_scores]) if options[:track_scores]
           s.sort do
             sort.each do |t|
               field_name, direction = t.split(' ')
